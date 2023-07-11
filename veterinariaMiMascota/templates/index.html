@@ -1,0 +1,26 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/veterinaria-mi-mascota/src/assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+    <title>Mi Mascota</title>
+</head>
+<body>
+    <!--Contenedor General-->
+    <div class="container">
+      {% block content %}
+      <div id="app"></div>
+      {% endblock %}
+    </div>
+
+<link rel="stylesheet" href="{% static 'css/app.6b87c9cd.css' %}">
+<script src="{% static 'js/chunk-vendors.794835eb.js' %}" defer></script>
+<script src="{% static 'js/app.4589ec98.js' %}" defer></script>
+</body>
+</html>

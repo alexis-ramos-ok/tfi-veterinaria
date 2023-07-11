@@ -1,0 +1,52 @@
+{% extends "login.html" %}
+
+{% block content %}
+<div class="contenido-profile">
+    <a class="enlace-de-profile" href="{% url 'reservar_cita' %}">Turnos</a>
+<h2 class="title-profile">Perfil de usuario</h2>
+<form method="post" id="form-profile">
+    {% csrf_token %}
+    <div class="form-group-profile">
+        <label for="first_name">Nombre:</label>
+        <input type="text" name="first_name" id="first_name" value="{{ profile.first_name }}" disabled>
+    </div>
+    <div class="form-group-profile">
+        <label for="last_name">Apellido:</label>
+        <input type="text" name="last_name" id="last_name" value="{{ profile.last_name }}" disabled>
+    </div>
+    <div class="form-group-profile">
+        <label for="pet_name">Nombre de la mascota:</label>
+        <input type="text" name="pet_name" id="pet_name" value="{{ profile.pet_name }}" disabled>
+    </div>
+    <div class="form-group-profile">
+        <label for="pet_breed">Raza:</label>
+        <input type="text" name="pet_breed" id="pet_breed" value="{{ profile.pet_breed }}" disabled>
+    </div>
+    <div class="form-group-profile">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ profile.email }}" disabled>
+    </div>
+    <div class="form-group-profile">
+        <label for="phone">Teléfono:</label>
+        <input type="text" name="phone" id="phone" value="{{ profile.phone }}" disabled>
+    </div>
+    <div class="botones">
+        <button type="button" id="btn-editar" class="btn">Editar</button>
+        <input type="submit" value="Guardar" disabled class="btn">
+    </div>
+    
+</form>
+</div>
+
+<script>
+document.querySelector('#btn-editar').addEventListener('click', () => {
+    // Habilitar los campos del formulario
+    document.querySelectorAll('#form-profile input').forEach(el => {
+        el.disabled = false;
+    });
+    // Habilitar el botón de guardar
+    document.querySelector('#form-profile input[type="submit"]').disabled = false;
+});
+
+</script>
+{% endblock %}

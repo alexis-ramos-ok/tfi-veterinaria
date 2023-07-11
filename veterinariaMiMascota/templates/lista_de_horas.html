@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="nav"></div>
+<div class="hero-image">
+    <!--Imagen que cubre la parte inicial hasta barra de menús-->
+        <div class="hero-text">
+          <h1>Horarios</h1>
+        </div>
+</div>
+
+<div class="contenido">
+    <a href="{% url 'reservar_cita' %}"><i class="fas fa-arrow-left enlace-lista"></i></a>
+    <h1 class="titulo-dia">{{ nombre_dia }} Horas disponibles</h1>
+
+    <ul class="horas-disponibles">
+        {% for hora, citas in horas_con_citas %}
+            <li class="hora-disponible">
+                <div class="hora-title">{{ hora }}</div>
+                {% if citas %}
+                    <!-- Mostrar el nombre de la persona que reservó la cita -->
+                    <div class="cita">
+                        <i class="fas fa-paw"></i> {{ citas.0.nombre_mascota }} y 🖐🏻 {{ citas.0.nombre_dueno }}
+
+                        {% if citas.0.nombre_dueno == profile.first_name %}
+                            <a href="{% url 'eliminar_cita' dia hora %}" class="eliminar-cita">X</a>
+                        {% endif %}
+                    </div>
+                    
+                {% else %}
+                    <!-- Permitir crear una cita si no hay citas para esta hora -->
+                    <a href="{% url 'crear_cita' dia hora %}" class="enlace-lista">Crear cita</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+<div id="footer"></div>
+<script>
+    document.querySelectorAll('.eliminar-cita').forEach(el => {
+        el.addEventListener('click', e => {
+            if (!confirm('¿Estás seguro de que quieres eliminar esta cita?')) {
+                e.preventDefault();
+            }
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="nav"></div>
+<div class="hero-image">
+    <!--Imagen que cubre la parte inicial hasta barra de menús-->
+        <div class="hero-text">
+          <h1>Crear</h1>
+        </div>
+</div>
+
+<div class="contenido">
+    <h1 class="title-create">Crear cita</h1>
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        <div class="form-group">
+     
+            <input type="text" name="{{ form.nombre_mascota.name }}" value="{% if form.nombre_mascota.value != None %}{{ form.nombre_mascota.value }}{% endif %}" class="form-control" id="{{ form.nombre_mascota.auto_id }}" placeholder="Nombre de la mascota" required>
+        </div>
+        <div class="form-group">
+
+            <input type="text" name="{{ form.raza.name }}" value="{% if form.raza.value != None %}{{ form.raza.value }}{% endif %}" class="form-control" id="{{ form.raza.auto_id }}" placeholder="Raza" required>
+        </div>
+        <div class="form-group">
+
+            <input type="text" name="{{ form.nombre_dueno.name }}" value="{% if form.nombre_dueno.value != None %}{{ form.nombre_dueno.value }}{% endif %}" class="form-control" id="{{ form.nombre_dueno.auto_id }}" placeholder="Nombre del dueño" required>
+        </div>
+        <div class="form-group">
+
+            <input type="tel" name="{{ form.telefono.name }}" value="{% if form.telefono.value != None %}{{ form.telefono.value }}{% endif %}" class="form-control" id="{{ form.telefono.auto_id }}" placeholder="Teléfono" required>
+        </div>
+        <div class="form-group">
+
+            <input type="email" name="{{ form.email.name }}" value="{% if form.email.value != None %}{{ form.email.value }}{% endif %}" class="form-control" id="{{ form.email.auto_id }}" placeholder="Email" required>
+        </div>
+        <div class="form-actions">
+            <a href="{% url 'lista_de_horas' dia %}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <button type="submit" class="btn-save">
+                <i class="fas fa-save"></i>
+            </button>
+        </div>
+    </form>  
+</div>
+
+
+<div id="footer"></div>
+{% endblock %}

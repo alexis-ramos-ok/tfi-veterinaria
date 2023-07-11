@@ -1,0 +1,60 @@
+{% extends "login.html" %}
+
+{% block content %}
+<div class="contenido-reg">
+    <h2 class="title-reg">Página de Registro</h2>
+    {% if form.errors %}
+        <div class="error-messages show-error-messages">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form id="form-reg" method="post">
+        {% csrf_token %}
+        <div class="form-group-reg">
+            {{ form.username }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.password1 }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.password2 }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.first_name }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.last_name }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.pet_name }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.pet_breed }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.email }}
+        </div>
+        <div class="form-group-reg">
+            {{ form.phone }}
+        </div>
+        <button id="btn-reg" type="submit">Registrarse</button>
+    </form>
+</div>
+
+<script>
+    setTimeout(function() {
+        var errorMessages = document.querySelector('.error-messages');
+        if (errorMessages) {
+            errorMessages.classList.remove('show-error-messages');
+        }
+    }, 5000);
+</script>
+  
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="nav"></div>
+  <div class="hero-image">
+    <!--Imagen que cubre la parte inicial hasta barra de menús-->
+        <div class="hero-text">
+          <h1>Turnos</h1>
+        </div>
+  </div>
+  
+  <div class="contenido-agendar">
+    <div class="my-4" style="display: flex; justify-content: center; align-items: center;">
+        <h2>Agendar cita</h2>
+    </div>
+    <div class="tarjetas-container">
+        {% for dia, valor in dias.items %}
+            <div class="tarjeta-container">
+                <div class="tarjeta-dia card-{{ valor }}" onclick="location.href='{% url 'lista_de_horas' valor %}'" style="cursor: pointer;">
+                    <div class="card-body" style="display: flex; justify-content: center; align-items: center;">
+                        <h5 class="card-title">{{ dia }}</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="footer"></div>
+{% endblock %}
+
