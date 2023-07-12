@@ -197,7 +197,11 @@ def crear_cita(request, dia, hora):
     # Comprobar si el usuario ya tiene una cita para el día seleccionado
     if Cita.objects.filter(dia=dia, nombre_dueno=profile.first_name).exists():
         # Mostrar un mensaje de error
-        messages.error(request, 'Ya tienes una cita para este día')
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({'success': False})
+        else:
+            messages.error(request, 'Ya tienes una cita para este día')
+            return redirect('lista_de_horas', dia=dia)
     else:
         # Crear una nueva cita con los datos del perfil de usuario
         cita = Cita.objects.create(
@@ -211,8 +215,19 @@ def crear_cita(request, dia, hora):
             email=profile.email,
             telefono=profile.phone
         )
-        messages.success(request, 'Cita creada')
-    return redirect('lista_de_horas', dia=dia)
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return JsonResponse({
+                'success': True,
+                'nombre_mascota': profile.pet_name,
+                'nombre_dueno': profile.first_name,
+                'eliminar_cita_url': reverse('eliminar_cita', args=[dia, hora])
+            })
+        else:
+            messages.success(request, 'Cita creada')
+            return redirect('lista_de_horas', dia=dia)
+
+
+
 
 
 

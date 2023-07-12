@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="Assets/favicon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'css/log.css' %}">
@@ -18,7 +18,14 @@
 {% block content %}
 <div class="contenido-log">
     <h2 class="title-log">Iniciar sesión</h2>
-  
+    {% if messages %}
+    <div class="error-messages show-error-messages">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
     <form id="form-ini" method="post">
       {% csrf_token %}
       <label for="username">Nombre de usuario:</label>
@@ -30,20 +37,21 @@
   
     <p>¿No tienes una cuenta? <a href="/register/">Regístrate</a></p>
 </div>
-  
-{% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+
 
 {% endblock %}
 <div id="footer"></div>
 </div>
-<link rel="stylesheet" href="{% static 'css/app.6b87c9cd.css' %}">
+<script>
+    setTimeout(function() {
+        var errorMessages = document.querySelector('.error-messages');
+        if (errorMessages) {
+            errorMessages.classList.remove('show-error-messages');
+        }
+    }, 5000);
+</script>
+<link rel="stylesheet" href="{% static 'css/app.f7c7ee5c.css' %}">
 <script src="{% static 'js/chunk-vendors.794835eb.js' %}" defer></script>
-<script src="{% static 'js/app.4589ec98.js' %}" defer></script>
+<script src="{% static 'js/app.802b31ba.js' %}" defer></script>
 </body>
 </html>

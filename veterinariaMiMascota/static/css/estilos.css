@@ -39,7 +39,12 @@ body {
   font-weight: bold;
   white-space: nowrap; /* para que el texto no se divida en dos líneas */
 }
+@media screen and (max-width: 768px) {
+  .hero-image{
+    background-image: url("../img/hero-m2.be41bcd2.png");
+  }
 
+}
 /*--- Reservar cita ---*/
 
 .contenido-agendar {
@@ -400,4 +405,8 @@ body {
 .show-error-messages {
   max-height: 500px;
   opacity: 1;
+}
+
+.hidden {
+  display: none !important;
 }

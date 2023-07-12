@@ -29,7 +29,7 @@
                     
                 {% else %}
                     <!-- Permitir crear una cita si no hay citas para esta hora -->
-                    <a href="{% url 'crear_cita' dia hora %}" class="enlace-lista">Crear cita</a>
+                    <a href="{% url 'crear_cita' dia hora %}" class="enlace-lista crear-cita">Crear cita</a>
                 {% endif %}
             </li>
         {% endfor %}
@@ -47,5 +47,56 @@
             }
         });
     });
+
+// Obtener todos los botones de creación de cita
+const createButtons = document.querySelectorAll('.crear-cita');
+
+// Agregar un controlador de eventos click a cada botón
+createButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        // Evitar que el botón realice su acción predeterminada
+        event.preventDefault();
+
+        // Obtener la URL del botón
+        const url = button.href;
+
+        // Enviar una solicitud AJAX al servidor
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Crear un nuevo elemento con la clase .cita
+                const citaElement = document.createElement('div');
+                citaElement.classList.add('cita');
+                citaElement.innerHTML = '<i class="fas fa-paw"></i> ' + data.nombre_mascota + ' y 🖐🏻 ' + data.nombre_dueno;
+
+                // Crear un nuevo botón para eliminar la cita
+                const eliminarCitaButton = document.createElement('a');
+                eliminarCitaButton.classList.add('eliminar-cita');
+                eliminarCitaButton.href = data.eliminar_cita_url;
+                eliminarCitaButton.textContent = 'X';
+
+                // Agregar el botón para eliminar la cita al nuevo elemento con la clase .cita
+                citaElement.appendChild(eliminarCitaButton);
+
+                // Agregar el nuevo elemento a la página
+                const horaDisponibleElement = button.closest('.hora-disponible');
+                horaDisponibleElement.appendChild(citaElement);
+
+                // Ocultar el botón de creación de cita
+                button.classList.add('hidden');
+            } else {
+                // Mostrar un mensaje de error al usuario
+                alert('Error al crear la cita');
+            }
+        });
+    });
+});
+
     </script>
 {% endblock %}
