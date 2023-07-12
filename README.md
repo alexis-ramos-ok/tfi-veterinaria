@@ -1,6 +1,6 @@
 # Veterinaria Mi Mascota
 
-![Logo de Veterinaria Mi Mascota](Assets/veterinaria-logo.png)
+![Logo de Veterinaria Mi Mascota](https://raw.githubusercontent.com/alexis-ramos-ok/tfi-veterinaria/main/veterinariaMiMascota/static/img/veterinaria-logo.8c510b78.png)
 
 Este proyecto es una aplicación web para una veterinaria llamada Veterinaria Mi Mascota. Inicialmente desarrollado utilizando HTML, CSS y JavaScript puro, ahora ha sido migrado a un enfoque de componentes Vue.js integrado con Django para la parte del backend. La aplicación permite a los usuarios registrarse, iniciar sesión, reservar citas y administrar sus datos de perfil.
 
