@@ -226,12 +226,7 @@ def crear_cita(request, dia, hora):
             messages.success(request, 'Cita creada')
             return redirect('lista_de_horas', dia=dia)
 
-
-
-
-
-
-def eliminar_citas():
+def obtener_ultimo_dia():
     dias = {
         'Lunes': 1,
         'Martes': 2,
@@ -241,11 +236,43 @@ def eliminar_citas():
         'Sábado': 6,
     }
     
-    # Obtener el último día en el diccionario dias
-    ultimo_dia = list(dias.keys())[-1]
+    # Obtener el día actual
+    dia_actual = timezone.now().strftime('%A')
+    
+    # Verificar si el día actual es domingo y, en caso afirmativo, establecer el día actual como lunes
+    if dia_actual == 'Sunday':
+        dia_actual = 'Monday'
+    
+    # Crear un diccionario de traducción para convertir el nombre del día en inglés al nombre del día en español
+    dias_en_es = {
+        'Monday': 'Lunes',
+        'Tuesday': 'Martes',
+        'Wednesday': 'Miércoles',
+        'Thursday': 'Jueves',
+        'Friday': 'Viernes',
+        'Saturday': 'Sábado',
+    }
+    
+    # Convertir el nombre del día en inglés al nombre del día en español
+    dia_actual_es = dias_en_es[dia_actual]
+    
+    # Crear una lista ordenada de los días a partir del día actual
+    dias_ordenados = list(dias.keys())[list(dias.keys()).index(dia_actual_es):] + list(dias.keys())[:list(dias.keys()).index(dia_actual_es)]
+    
+    # Obtener el último día de la lista ordenada de días
+    ultimo_dia = dias[dias_ordenados[-1]]
+    
+    return ultimo_dia
+
+
+
+def eliminar_citas():
+    # Obtener el último día de la lista actualizada
+    ultimo_dia = obtener_ultimo_dia()
     
     # Eliminar las citas del último día
-    Cita.objects.filter(dia=dias[ultimo_dia]).delete()
+    Cita.objects.filter(dia=ultimo_dia).delete()
+
     
 def eliminar_cita(request, dia, hora):
     # Obtener el usuario registrado
