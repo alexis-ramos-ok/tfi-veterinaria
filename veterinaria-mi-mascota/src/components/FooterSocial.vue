@@ -7,7 +7,7 @@
           <hr />
         </div>
         <div class="footer-links">
-          <a class="politica" href="#">Política de privacidad</a>
+          <a class="politica" href="/PoliticaPage">Política de privacidad</a>
           <div class="contenedor-redes-sociales">
             <div class="redes-sociales">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -17,7 +17,7 @@
               <a href="#"><i class="fa-brands fa-telegram"></i></a>
             </div>
           </div>
-          <a class="terminos" href="#">Términos y condiciones</a>
+          <a class="terminos" href="/TerminosPage">Términos y condiciones</a>
         </div>
         <h3 class="titulo-novedades">Novedades semanales</h3>
         <form action="" class="subscribe-form">
@@ -58,21 +58,7 @@ transform: scale(1.2);
 color: #fff;
 }
 
-.redes-sociales a.facebook:hover {
-background-color: #3b5998;
-}
 
-.redes-sociales a.twitter:hover {
-background-color: #1DA1F2;
-}
-
-.redes-sociales a.instagram:hover {
-background-color: #C13584;
-}
-
-.redes-sociales a.youtube:hover {
-background-color: #FF0000;
-}
 
 .redes-sociales a i {
 transition: all 0.3s ease-in-out;
