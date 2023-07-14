@@ -23,5 +23,6 @@ urlpatterns = [
     path('register/', views.register_view, name='register'),
     path('eliminar/<int:dia>/<str:hora>/', views.eliminar_cita, name='eliminar_cita'),
     path('perfil/', views.perfil_usuario, name='perfil_usuario'),
-
+    path('PoliticaPage/', views.politica_page, name='politica_page'),
+    path('TerminosPage/', views.terminos_page, name='terminos_page'),
 ]

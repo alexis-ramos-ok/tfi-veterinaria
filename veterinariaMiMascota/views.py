@@ -112,8 +112,11 @@ def about_page(request):
 def contacto_page(request):
     return render(request, 'index.html')
 
+def politica_page(request):
+    return render(request, 'index.html')
 
-
+def terminos_page(request):
+    return render(request, 'index.html')
 
 @login_required
 def reservar_cita(request):
@@ -269,7 +272,8 @@ def obtener_ultimo_dia():
 def eliminar_citas():
     # Obtener el último día de la lista actualizada
     ultimo_dia = obtener_ultimo_dia()
-    
+     # Imprimir el valor de ultimo_dia para verificar si es correcto
+    print('Ultimo dia:', ultimo_dia)
     # Eliminar las citas del último día
     Cita.objects.filter(dia=ultimo_dia).delete()
 
@@ -319,7 +323,3 @@ def perfil_usuario(request):
         )
         messages.success(request, 'Perfil actualizado')
     return render(request, 'perfil_usuario.html', {'profile': profile})
-
-
-
-
