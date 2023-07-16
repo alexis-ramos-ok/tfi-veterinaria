@@ -25,4 +25,8 @@ urlpatterns = [
     path('perfil/', views.perfil_usuario, name='perfil_usuario'),
     path('PoliticaPage/', views.politica_page, name='politica_page'),
     path('TerminosPage/', views.terminos_page, name='terminos_page'),
+    path('PelajePage/', views.terminos_page, name='pelaje_page'),
+    path('AlimentacionPage/', views.terminos_page, name='alimentacion_page'),
+    path('EjercicioPage/', views.terminos_page, name='ejercicios_page'),
+    path('SocializacionPage/', views.terminos_page, name='socializacion_page'),
 ]

@@ -118,6 +118,18 @@ def politica_page(request):
 def terminos_page(request):
     return render(request, 'index.html')
 
+def pelaje_page(request):
+    return render(request, 'index.html')
+
+def alimentacion_page(request):
+    return render(request, 'index.html')
+
+def ejercicio_page(request):
+    return render(request, 'index.html')
+
+def socializacion_page(request):
+    return render(request, 'index.html')
+
 @login_required
 def reservar_cita(request):
     print(request.user.is_authenticated)

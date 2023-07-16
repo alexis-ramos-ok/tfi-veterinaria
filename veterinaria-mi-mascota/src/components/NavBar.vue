@@ -51,7 +51,9 @@ export default {
   };
 },
 methods: {
+  
   getUserData() {
+    if (this.isLoggedIn) {
     fetch('/user-data/')
       .then(response => response.json())
       .then(data => {
@@ -60,6 +62,7 @@ methods: {
       .catch(error => {
       console.error('Error al obtener los datos del usuario:', error);
     });
+  }
   },
   logout() {
     const csrftoken = this.getCookie('csrftoken');

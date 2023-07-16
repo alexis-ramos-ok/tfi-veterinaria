@@ -26,76 +26,85 @@
   </div>
     <div class="blog-cajas">
 
-      <article class="container-card card-1">
-  <div class="img-card">
-    <img
-      src="https://static.miscota.com/consejos/wp-content/uploads/2016/10/shutterstock_346619315-FILEminimizer.jpg"
-      alt="cepillar_perro"
-    />
-  </div>
-  <div class="text-card">
-    <h3>Todo sobre el cuidado de su pelaje</h3>
-    <p class="fecha">18/05/23</p>
-    <div>
-      <p>
-        Cuidar el cabello de tu mascota es importante para su salud y bienestar general. El cepillado regular puede ayudar a prevenir enredos, caída del pelo e irritación de la piel.
-      </p>
+      <router-link to="/PelajePage">
+  <article class="container-card card-1">
+    <div class="img-card">
+      <img
+        src="https://static.miscota.com/consejos/wp-content/uploads/2016/10/shutterstock_346619315-FILEminimizer.jpg"
+        alt="cepillar_perro"
+      />
     </div>
-  </div>
-</article>
+    <div class="text-card">
+      <h3>Todo sobre el cuidado de su pelaje</h3>
+      <p class="fecha">18/05/23</p>
+      <div>
+        <p>
+          Cuidar el cabello de tu mascota es importante para su salud y bienestar general. El cepillado regular puede ayudar a prevenir enredos, caída del pelo e irritación de la piel.
+        </p>
+      </div>
+    </div>
+  </article>
+</router-link>
 
-<article class="container-card card-2">
-  <div class="img-card">
-    <img
-      src="https://www.eluniverso.com/resizer/bK8SrLrW9M4jehIdkdCcRLMPaoM=/813x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/HNPPMBADKNEYBLUO37M6NLHSCM.jpg"
-      alt="alimento-para-animales"
-    />
-  </div>
-  <div class="text-card">
-    <h3>Claves en su alimentación</h3>
-    <p class="fecha">28/05/23</p>
-    <div>
-      <p>
-        Alimentar a tu mascota con una dieta equilibrada y nutritiva es esencial para su salud. Consulta con tu veterinario para determinar el mejor alimento para tu mascota según su edad, raza y necesidades de salud.
-      </p>
+<router-link to="/AlimentacionPage">
+  <article class="container-card card-2">
+    <div class="img-card">
+      <img
+        src="https://www.eluniverso.com/resizer/bK8SrLrW9M4jehIdkdCcRLMPaoM=/813x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/HNPPMBADKNEYBLUO37M6NLHSCM.jpg"
+        alt="alimento-para-animales"
+      />
     </div>
-  </div>
-</article>
+    <div class="text-card">
+      <h3>Claves en su alimentación</h3>
+      <p class="fecha">28/05/23</p>
+      <div>
+        <p>
+          Alimentar a tu mascota con una dieta equilibrada y nutritiva es esencial para su salud. Consulta con tu veterinario para determinar el mejor alimento para tu mascota según su edad, raza y necesidades de salud.
+        </p>
+      </div>
+    </div>
+  </article>
+</router-link>
 
-<article class="container-card card-3">
-  <div class="img-card">
-    <img
-      src="https://www.santalucia.es/imagenes_slw4/1574962222778/tmptmp.jpg"
-      alt="ejercicio-para-mascotas"
-    />
-  </div>
-  <div class="text-card">
-    <h3>Haces ejercicio con tu mascota?</h3>
-    <p class="fecha">07/06/23</p>
-    <div>
-      <p>
-        El ejercicio regular es importante para la salud física y mental de tu mascota. Asegúrate de proporcionarles muchas oportunidades para jugar y hacer ejercicio, como paseos, juegos y juguetes.
-      </p>
+<router-link to="/EjercicioPage">
+  <article class="container-card card-3">
+    <div class="img-card">
+      <img
+        src="https://www.santalucia.es/imagenes_slw4/1574962222778/tmptmp.jpg"
+        alt="ejercicio-para-mascotas"
+      />
     </div>
-  </div>
-</article>
-<article class="container-card card-4">
-  <div class="img-card">
-    <img
-      src="https://www.mundoperro.net/wp-content/uploads/convivencia-perros-gatos-1200x741.jpg"
-      alt="socializacion-de-mascotas"
-    />
-  </div>
-  <div class="text-card">
-    <h3>Socialización y Mascotas</h3>
-    <p class="fecha">17/06/23</p>
-    <div>
-      <p>
-        La socialización es importante para el desarrollo y bienestar de tu mascota. Exponlos a una variedad de personas, animales y entornos para ayudarlos a ser bien adaptados y seguros.
-      </p>
+    <div class="text-card">
+      <h3>Haces ejercicio con tu mascota?</h3>
+      <p class="fecha">07/06/23</p>
+      <div>
+        <p>
+          El ejercicio regular es importante para la salud física y mental de tu mascota. Asegúrate de proporcionarles muchas oportunidades para jugar y hacer ejercicio, como paseos, juegos y juguetes.
+        </p>
+      </div>
     </div>
-  </div>
-</article> 
+  </article>
+</router-link>
+
+<router-link to="/SocializacionPage">
+  <article class="container-card card-4">
+    <div class="img-card">
+      <img
+        src="https://www.mundoperro.net/wp-content/uploads/convivencia-perros-gatos-1200x741.jpg"
+        alt="socializacion-de-mascotas"
+      />
+    </div>
+    <div class="text-card">
+      <h3>Socialización y Mascotas</h3>
+      <p class="fecha">17/06/23</p>
+      <div>
+        <p>
+          La socialización es importante para el desarrollo y bienestar de tu mascota. Exponlos a una variedad de personas, animales y entornos para ayudarlos a ser bien adaptados y seguros.
+        </p>
+      </div>
+    </div>
+  </article> 
+</router-link> 
 
         </div>
       </section>
@@ -211,6 +220,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+
+.blog-cajas a {
+  display:contents;
+}
+
 
 .container-card {
   background-color:#fff;

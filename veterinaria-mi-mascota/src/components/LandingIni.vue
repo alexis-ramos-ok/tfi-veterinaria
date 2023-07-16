@@ -48,10 +48,10 @@
       <h2>Pet Shop</h2>
       <div class="carousel-container">
         <ul class="carousel-slide">
-          <li><a href="pet-shop.html"><img src="../assets/slide1.jpg" alt="Imagen 1"></a></li>
-          <li><a href="pet-shop.html"><img src="../assets/slide2.jpg" alt="Imagen 2"></a></li>
-          <li><a href="pet-shop.html"><img src="../assets/slide3.jpg" alt="Imagen 3"></a></li>
-          <li><a href="pet-shop.html"><img src="../assets/slide4.jpg" alt="Imagen 4"></a></li>
+          <li><router-link to="/PetShopPage"><img src="../assets/slide1.jpg" alt="Imagen 1"></router-link></li>
+          <li><router-link to="/PetShopPage"><img src="../assets/slide2.jpg" alt="Imagen 2"></router-link></li>
+          <li><router-link to="/PetShopPage"><img src="../assets/slide3.jpg" alt="Imagen 3"></router-link></li>
+          <li><router-link to="/PetShopPage"><img src="../assets/slide4.jpg" alt="Imagen 4"></router-link></li>
         </ul>
         <a class="carousel-prev" @click="prevSlide">&#10094;</a>
         <a class="carousel-next" @click="nextSlide">&#10095;</a>
@@ -74,7 +74,7 @@
         <div class="video-overlay"></div>
       </div>
       <div class="contenedor-contacto">
-        <h2 class="titulo-contacto"><a href="contacto.html">Contacto</a></h2>
+        <h2 class="titulo-contacto"><router-link to="/ContactoPage">Contacto</router-link></h2>
         <div class="contiene-info-mapa">
           <div class="informacion-contacto">
             <ul>
